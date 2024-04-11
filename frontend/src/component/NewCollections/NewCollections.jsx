@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Item from '../Item/Item';
 import './NewCollections.css';
 import data_newCollection from '../data/NewCollection_data';
 
 const NewCollections = () => {
+
+  const [new_collection,setNew_collection] = useState([]);
+
+  useEffect(()=>{
+    fetch('http://localhost:7000/newcollections')
+    .then((res)=>res.json())
+    .then((data)=>setNew_collection(data))
+  },[])
   return (
     <div className='new-collections'>
         <h1>NEW COLLECTIONS</h1>

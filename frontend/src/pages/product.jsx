@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
-import { ShopContext } from "../component/Context/ShopContext";
 import { useParams } from "react-router-dom";
 import Breadcrumb from "../component/Breadcrumbs/Breadcrumb";
 import ProductDisplay from "../component/ProductDisplay/ProductDisplay";
+import { ShopContext } from "../component/Context/ShopContext";
 import all_product from "../component/data/all_product";
 
 
 const Product = () => {
-    //  = useContext(ShopContext);
-    const { productId } = useParams();
-    const product = all_product && all_product.find((e) => e.id === Number(productId));
-    console.log(all_product);
+    const allproductvalue = useContext(ShopContext);
+    const {id} = useParams();
+    console.log(id)
+    const product = allproductvalue[0] && allproductvalue[0].find((e) => e.id === Number(id));
+
+    console.log(all_product,product)
 
     return (
         <div>

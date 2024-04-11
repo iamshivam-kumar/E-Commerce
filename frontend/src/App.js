@@ -10,7 +10,6 @@ import Footer from './component/Footer/Footer';
 import men_banner from './component/Assets/men_banner.jpg';
 import women_banner from './component/Assets/women_banner.jpg';
 import kid_banner from './component/Assets/kid_banner.jpg';
-import ShopContextProvider from './component/Context/ShopContext';
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
         <Route path="/women" element={<ShopCategory banner={women_banner} category="women"/>}/>
         <Route path="/kid" element={<ShopCategory banner={kid_banner} category="kid"/>}/>
         <Route path='/product' element={<Product/>}>
-        <Route path=':product.Id' element={<Product/>}/>
+        <Route path='/product/:id' element={<Product/>}/>
         </Route>
         
         {/* </ShopContextProvider> */}

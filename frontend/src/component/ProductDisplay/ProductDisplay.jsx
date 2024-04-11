@@ -4,7 +4,7 @@ import { RiStarLine } from 'react-icons/ri';
 import { ShopContext } from '../Context/ShopContext';
 const ProductDisplay = ({product}) => {
     
-    const {addToCart} = useContext(ShopContext);
+    const all =useContext(ShopContext);
     
 
     console.log(product);
@@ -52,7 +52,7 @@ const ProductDisplay = ({product}) => {
                 <div>XXL</div>
             </div>
             </div>
-            <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
+            <button onClick={()=>{all[2](product.id)}}>ADD TO CART</button>
             <p className='productdisplay-right-category'><span>Category:</span>Women, T-Shirt, Crop Top</p>
             <p className='productdisplay-right-category'><span>Tags:</span>Modern, Latest, Crop Top</p>
         </div>

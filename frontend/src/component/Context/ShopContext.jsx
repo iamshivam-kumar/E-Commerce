@@ -13,6 +13,13 @@ const getDafaultCart = ()=>{
 const ShopContextProvider = (props) => {
     // const contextValue = {all_product};
     const [cartItems,setCartItems] = useState(getDafaultCart());
+    // const [all_product,setAll_product] = useState([]);
+    
+    // useEffect(()=>{
+    //     fetch('http://localhost:7000/allproducts')
+    //     .then((response)=>response.json())
+    //     .then((data)=>setAll_product(data))
+    // },[])
 
      
 
@@ -28,17 +35,7 @@ const ShopContextProvider = (props) => {
     //const Products = { all_product,addToCart, removeFromCart,cartItems };
 
 
-
-    
-    // const [all_product,setAll_product] = useState([]);
-    
-    // useEffect(()=>{
-    //     fetch('http://localhost:6000/allproduct')
-    //     .then((response)=>response.json())
-    //     .then((data)=>setAll_product(data))
-    // },[])
-
-    const [products] = useState(all_product, cartItems, addToCart, removeFromCart);
+    const allValue = [all_product, cartItems, addToCart, removeFromCart];
 
     // const Products = {all_product,cartItems}
     // const contextValue = {
@@ -47,9 +44,11 @@ const ShopContextProvider = (props) => {
     //     removeFromCart: removeFromCart
     // }
 
+    console.log(allValue,"allValue")
+
 
     return (
-        <ShopContext.Provider value={{ products }}>
+        <ShopContext.Provider value={ allValue }>
             {props.children}
 
         </ShopContext.Provider>
